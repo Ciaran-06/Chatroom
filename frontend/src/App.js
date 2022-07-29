@@ -18,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <button onClick={this.send}>Hit</button>
       </div>
     );
