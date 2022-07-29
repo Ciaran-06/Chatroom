@@ -1,4 +1,4 @@
-import React, { Component } from "reac";
+import React, { Component } from "react";
 import './App.css';
 import { connect, sendsMsg } from "../api"
 
