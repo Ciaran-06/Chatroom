@@ -7,12 +7,23 @@ import Header from "./components/Header/Header";
 class App extends Component {
   constructor(props) {
     super(props);
-    connect();
+    this.state = {
+      chatHistory: []
+    }
   }
 
   send() {
     console.log("hello");
     sendMsg("hello");
+  }
+
+  componentDidMount() {
+    connect((msg) => {
+      console.log("New Message")
+      this.setState(prevState => ({
+        chatHistory: [...this.state.chatHistory, msg]
+      }))
+    })
   }
 
   render() {
