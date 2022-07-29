@@ -15,6 +15,24 @@ var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool { return true },
 }
 
+func reader(conn *websocket.Conn) {
+	for {
+		//take in message
+		messageType,p,err := conn.ReadMessage()
+		if err != nil {
+			log.Println(err)
+			return
+		}
+
+		fmt.Println(string(p))
+
+		if err := conn.WriteMessage(messageType,p);err != nil {
+			log.Println(err)
+			return
+		}
+	}
+}
+
 func setupRoutes() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "Simple Server")
