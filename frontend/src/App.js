@@ -1,6 +1,7 @@
+// App.js
 import React, { Component } from "react";
-import './App.css';
-import { connect, sendsMsg } from "../api"
+import "./App.css";
+import { connect, sendMsg } from "./api";
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class App extends Component {
 
   send() {
     console.log("hello");
-    sendsMsg("hello;")
+    sendMsg("hello");
   }
 
   render() {
