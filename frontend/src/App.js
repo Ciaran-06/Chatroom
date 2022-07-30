@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { connect, sendMsg } from "./api";
 import Header from "./components/Header/Header";
+import ChatHistory from "./components/ChatHistory";
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class App extends Component {
       this.setState(prevState => ({
         chatHistory: [...this.state.chatHistory, msg]
       }))
+      console.log(this.state);
     })
   }
 
@@ -30,6 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <ChatHistory chatHistory={this.state.chatHistory} />
         <button onClick={this.send}>Hit</button>
       </div>
     );

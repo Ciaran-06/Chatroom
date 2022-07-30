@@ -10,6 +10,7 @@ let connect = cb => {
 
   socket.onmessage = msg => {
     console.log(msg);
+    cb(msg);
   };
 
   socket.onclose = event => {
